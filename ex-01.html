@@ -10,6 +10,9 @@
             body {
                 margin:0;
                 padding: 0;
+                background: url("assets/images/background-mobile.webp") no-repeat;
+                background-size: cover;
+                background-position: center center;
             }
             /* seletor universal */
             * {
@@ -45,29 +48,20 @@
             h2 {
                 font-size: 2em;
             }
-            body {
-                background: url("assets/images/background-mobile.webp") no-repeat;
-                background-size: cover;
-                background-position: center center;
-            }
 
             /* Daqui pra cima é tudo mobile. */
 
             /* tablet - mediaquery para largura da tela, começando em 768px */
             @media (min-width: 768px) {
                 body {
-                    background: url("assets/images/background-tablet.webp") no-repeat;
-                    background-size: cover;
-                    background-position: center center;
+                    background-image: url("assets/images/background-tablet.webp");
                 }
             }
 
             /* desktop */
             @media (min-width: 1280px) {
                 body {
-                    background: url("assets/images/background-desktop.webp") no-repeat;
-                    background-size: cover;
-                    background-position: center center;
+                    background-image: url("assets/images/background-desktop.webp");
                 }
             }
 
