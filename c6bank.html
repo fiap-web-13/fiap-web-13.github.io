@@ -43,15 +43,24 @@
 
         header.style.background = "none";
         button.classList.add("disabled");
+        // margin-bottom
+        // marginBottom
+        //janela e site
+        //window e document
+
+        //evento chamado scroll. JavaScript é uma linguagem dirigida a eventos
+        //Criamos uma escuta para um evento. 
 
         window.addEventListener('scroll', (e) => {
-            if(scrollY < 100) {
+            console.log(body.clientHeight);//altura total 2000
+
+            if (scrollY < 100) {
                 header.style.background = "none";
                 button.classList.add("disabled");
             } else {
                 const logo = header.querySelector(".jss12");
-                
-                if(scrollY >= (body.clientHeight - 1000)) {
+
+                if (window.scrollY >= (body.clientHeight - 1000)) {
                     header.style.background = "#000";
                     logo.style.fill = "#fff";
                     header.classList.add("footer-link-a");
@@ -62,7 +71,19 @@
                     header.classList.remove("footer-link-a");
                 }
             }
-        })
+        });
+
+//teremos aula sobre funções em JavaScript.
+//A forma mais simples de criar uma função, é uma função de seta.
+// arrow function
+//   const msg = nome_time => alert(nome_time);
+// msg('Corinthians');
+//  (nome_time) => { corpo da função}
+// ()=>{}
+
+
     </script>
+
+    <script type="text/JavaScript" src="assets/js/main.js"></script>
 </body>
 </html>
