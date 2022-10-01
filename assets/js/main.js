@@ -4,8 +4,14 @@ const frases = [
     "A vida é uma dádiva"
 ];
 
+let index = 0;
 const mudaFrase = (target, array) => {
-    const mostraFrase = frases.map(item => item);
-    // document.querySelector(target).innerHTML = mostraFrase;
+    document.querySelector(target).innerHTML = array[index];
+    index++;
+    if(index >= array.length) {
+        index = 0;
+    }
 };
-setInterval(mudaFrase("h1", frases), 4000);
+setInterval(() => {
+    mudaFrase("h1", frases)
+}, 4000);
