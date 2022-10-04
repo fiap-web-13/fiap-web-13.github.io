@@ -5,13 +5,9 @@ const frases = [
 ];
 
 const mudaFrase = (target, array) => {
-    let index = 0;
+    let index = 2;
     setInterval(() => {
-        document.querySelector(target).innerHTML = array[index];
-        index++;
+        document.querySelector(target).innerHTML = array[index >= array.length - 1 ? (index = 0) : (index += 1)]; // 0 >= 3
     }, 4000);
-    if(index >= array.length) {
-        index = 0;
-    }
 };
 mudaFrase("h1", frases);
