@@ -12,29 +12,29 @@ body.addEventListener("mouseout", (e) => {
     body.style.background = "unset";
 });
 
-tooltip.addEventListener("mouseover", (e) => {
-    console.log("Altura da página", body.clientHeight);
-    console.log("Largura da página", body.clientWidth);
-    console.log("Altura do tooltip", tooltip.clientHeight);
-    console.log("Largura do tooltip", tooltip.clientWidth);
-    console.log("Altura do mouse", e.clientY);
-    console.log("Largura do mouse", e.clientX);
+// tooltip.addEventListener("mouseover", (e) => {
+//     console.log("Altura da página", body.clientHeight);
+//     console.log("Largura da página", body.clientWidth);
+//     console.log("Altura do tooltip", tooltip.clientHeight);
+//     console.log("Largura do tooltip", tooltip.clientWidth);
+//     console.log("Altura do mouse", e.clientY);
+//     console.log("Largura do mouse", e.clientX);
 
-    if(document.querySelector(".tooltip")) {
-        document.querySelector(".tooltip").remove();
-    }
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("tooltip");
-    newDiv.innerHTML = "Minions ipsum poulet tikka masala tulaliloo bee do bee do bee do."
+//     if(document.querySelector(".tooltip")) {
+//         document.querySelector(".tooltip").remove();
+//     }
+//     const newDiv = document.createElement("div");
+//     newDiv.classList.add("tooltip");
+//     newDiv.innerHTML = "Minions ipsum poulet tikka masala tulaliloo bee do bee do bee do."
 
-    const largura = 200;
-    newDiv.style.position = "fixed";
-    newDiv.style.top = e.clientY + "px";
-    newDiv.style.display = "flex";
-    newDiv.style.left = (e.clientX + largura > body.clientWidth ? e.clientX - largura : e.clientX + largura) + "px";
+//     const largura = 200;
+//     newDiv.style.position = "fixed";
+//     newDiv.style.top = e.clientY + "px";
+//     newDiv.style.display = "flex";
+//     newDiv.style.left = (e.clientX + largura > body.clientWidth ? e.clientX - largura : e.clientX + largura) + "px";
 
-    header.appendChild(newDiv);
-});
+//     header.appendChild(newDiv);
+// });
 
 tooltip.addEventListener("mouseout", (e) => {
     if(document.querySelector(".tooltip")) {
@@ -43,10 +43,26 @@ tooltip.addEventListener("mouseout", (e) => {
 });
 
 const tooltipFunc = (target, text) => {
-    const div = document.querySelector(target);
-    div.addEventListener("mouseover", () => {
-        div.innerHTML = text;
-    })
-}
+    const tooltip = document.querySelector(target);
+    tooltip.addEventListener("mouseover", (e) => {
+        if(document.querySelector(".tooltip")) {
+            document.querySelector(".tooltip").remove();
+        };
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("tooltip");
+        newDiv.innerHTML = text;
 
-// tooltipFunc("#tooltip", "texto do tooltip");
+        const largura = 200;
+        newDiv.style.position = "fixed";
+        newDiv.style.top = e.clientY + "px";
+        newDiv.style.display = "flex";
+        newDiv.style.left = (e.clientX + largura > body.clientWidth ? 
+            e.clientX - largura : 
+            e.clientX + largura) 
+        + "px";
+    
+        header.appendChild(newDiv);
+    });
+};
+
+tooltipFunc("#tooltip", "texto do tooltip");
